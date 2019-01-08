@@ -40,6 +40,7 @@ module.exports.globals = {
 
   models: true,
 
+
   /****************************************************************************
   *                                                                           *
   * Whether to expose the Sails app instance as a global variable (`sails`),  *
@@ -48,5 +49,6 @@ module.exports.globals = {
   ****************************************************************************/
 
   sails: true,
+
 
 };
