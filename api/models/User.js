@@ -22,11 +22,11 @@ module.exports = {
       columnName: 'encryptedPassword'
     },
   },
-  customToJSON: function(){
-      return _.omit(this, ['password']);
-      },
+  customToJSON: function () {
+    return _.omit(this, ['password']);
+  },
 
-  beforeCreate: function(values, cb) {
+  beforeCreate: function (values, cb) {
     bcrypt.hash(values.password, 10, function (error, hash) {
       if (error) return cb(error);
       values.password = hash;
@@ -34,19 +34,19 @@ module.exports = {
     });
   },
 
-    comparePassword: function(password, user) {
-      return new Promise((resolve, reject) => {
-        bcrypt.compare(password,user.password, (error, match)=>{
-          if (error) reject(error);
+  comparePassword: function (password, user) {
+    return new Promise((resolve, reject) => {
+      bcrypt.compare(password, user.password, (error, match) => {
+        if (error) reject(error);
 
-          if (match) {
-            resolve(true);
-          }else {
-            reject(error);
-          }
-        });
+        if (match) {
+          resolve(true);
+        } else {
+          reject(error);
+        }
       });
-    }
+    });
+  }
 
 };
 

@@ -10,6 +10,7 @@
 
 module.exports.routes = {
 
-  'post /signup': 'UserController.create'
+  'post /api/v1/signup': 'UserController.create',
+  'post /api/v1/login': 'AuthController.login'
 
 };
